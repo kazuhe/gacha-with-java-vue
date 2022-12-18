@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  postgre:
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    container_name: gacha-db
+    volumes:
+      - type: volume
+        source: gacha-db-volume
+        target: /var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: gachadb
+
+volumes:
+  gacha-db-volume:
